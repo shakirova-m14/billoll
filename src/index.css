@@ -1,0 +1,58 @@
+@import "tailwindcss";
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  }
+}
+
+/* Pure CSS Category Filter Tabs using Radio inputs */
+.filter-radio {
+  display: none;
+}
+
+/* Category tab label styles */
+.cat-label {
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+/* Active tab styling based on checked radio */
+#cat-all:checked ~ .tabs-nav label[for="cat-all"],
+#cat-meva:checked ~ .tabs-nav label[for="cat-meva"],
+#cat-sabzavot:checked ~ .tabs-nav label[for="cat-sabzavot"],
+#cat-don:checked ~ .tabs-nav label[for="cat-don"],
+#cat-sut:checked ~ .tabs-nav label[for="cat-sut"],
+#cat-yongonq:checked ~ .tabs-nav label[for="cat-yongonq"] {
+  background-color: #15803d;
+  color: #ffffff;
+  border-color: #15803d;
+  box-shadow: 0 4px 12px rgba(21, 128, 61, 0.25);
+}
+
+/* Filtering the cards purely with CSS */
+#cat-meva:checked ~ .product-grid .product-card:not([data-cat="meva"]),
+#cat-sabzavot:checked ~ .product-grid .product-card:not([data-cat="sabzavot"]),
+#cat-don:checked ~ .product-grid .product-card:not([data-cat="don"]),
+#cat-sut:checked ~ .product-grid .product-card:not([data-cat="sut"]),
+#cat-yongonq:checked ~ .product-grid .product-card:not([data-cat="yongonq"]) {
+  display: none !important;
+}
+
+/* Details and Summary styling without JavaScript */
+details summary::-webkit-details-marker {
+  display: none;
+}
+details[open] summary .faq-icon {
+  transform: rotate(180deg);
+}
+
+/* Responsive Table */
+.custom-scrollbar::-webkit-scrollbar {
+  height: 6px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 9999px;
+}
